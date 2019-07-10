@@ -1,12 +1,8 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,14 +14,12 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polyline;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.TimerTask;
+
 
 
 public class Main extends Application {
@@ -170,7 +164,7 @@ public class Main extends Application {
 
         // Label sa kratkim opisom da li je slovo pogodjeno etc
 
-         infolabel = new Label("Dobro DOsli u igru vesala");
+         infolabel = new Label("Dobro DOsli u igru vesala                    ");
 
          infolabel.setAlignment(Pos.CENTER);
 
@@ -206,12 +200,14 @@ public class Main extends Application {
 
     public static void main(String[] args) {
        launch(args);
-   }
+   } // END OF MAIN
 
 
    public  void textUnos () {
 
-        // unos teksa sa lebela u char sequencu
+        // unos teksta sa lebela u char sequencu
+
+       int pogodjenaslovaFinal =0;
 
         CharSequence mladen =  textField1.getCharacters();
 
@@ -221,19 +217,22 @@ public class Main extends Application {
 
        if(mladen.length()==1){
            char a = mladen.charAt(0);
+
            System.out.println(a);
 
            for(int i =0 ;i<charArray.length;i++){
 
                if(charArray[i]==a) {
                    pogodjenaSlova++;
+                   pogodjenaslovaFinal++;
+
                    skrivenArray[i] = a;
                }
 
 
                }
 
-               if(pogodjenaSlova==0){
+               if(pogodjenaslovaFinal==0){
                    pokusaj--;
                    System.out.println("trazeno slovo ne postoji, broj pokusaja "+pokusaj);
                    infolabel.setText("trazeno slovo ne postoji, broj pokusaja "+pokusaj);
@@ -273,15 +272,9 @@ public class Main extends Application {
             String noviString = new String (skrivenArray);
             skrivenaRec.setText(noviString);
 
-
-
-
        textField1.clear();
 
-
-
-
-   }
+   } // END OF METHOD UNOS
 
    public void stampajrec(char passArra []){
 
@@ -294,4 +287,4 @@ public class Main extends Application {
    }
 
 
-}
+} // END OF CLASS
